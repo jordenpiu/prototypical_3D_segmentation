@@ -122,7 +122,7 @@ def forward( supp_imgs, supp_masks, qry_masks, qry_imgs):
         dist = [calDist(qry_fts[3][:epi], prototype) for prototype in supp_prototypes]
         #print(len(dist))
         pred = torch.stack(dist, dim=1)  # N x (1 + Wa) x H' x W'
-        print(pred.shape)  #0, 5, 5, 64, 64, 64
+        print(pred.shape)  #0, 5, 64, 64, 64
         outputs.append(F.interpolate(pred, size=img_size, mode='bilinear'))
 
 forward(supporti, supportl,queryl,queryi)
